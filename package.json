@@ -1,0 +1,23 @@
+{
+  "name": "youtube_siu",
+  "version": "0.0.1",
+  "private": true,
+  "description": "siu的一下,下载好youtube内容",
+  "main": "main.js",
+  "author": "lile",
+  "scripts": {
+    "start": "node start.js",
+    "many": "node group.js"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.14.5"
+  },
+  "dependencies": {
+    "app-root-path": "^3.1.0",
+    "chalk": "4.1.2",
+    "dayjs": "^1.11.13",
+    "ftp": "^0.3.10",
+    "random-words": "1.3.0"
+  }
+}

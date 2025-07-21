@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "app-root-path": "^3.1.0",
-    "chalk": "4.1.2",
+    "chalk": "5.4.1",
     "dayjs": "^1.11.13",
     "ftp": "^0.3.10",
     "ora": "^8.2.0",

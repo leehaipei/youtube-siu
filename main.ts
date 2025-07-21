@@ -1,18 +1,18 @@
-const randomWords = require("random-words");
-const ora = require("ora");
-const dayjs = require("dayjs");
-const appRoot = require("app-root-path");
-const { execSync } = require("child_process");
-const fs = require("fs");
-const path = require("path");
-const chalk = require("chalk");
-const removeFileDir = require("./util/removeFileDir");
-const runHooks = require("./util/runHooks");
+import randomWords from "random-words";
+import ora from "ora";
+import dayjs from "dayjs";
+import appRoot from "app-root-path";
+import { execSync } from "child_process";
+import fs from "fs";
+import path from "path";
+import chalk from "chalk";
+import removeFileDir from "./util/removeFileDir";
+import runHooks, { RunObject } from "./util/runHooks";
 
 const appRootPath = appRoot.path;
 let SAVEFLODER = appRootPath + "/download";
 
-function main(URL, ARGS) {
+function main(URL: string, ARGS: Array<string>) {
   return new Promise(async (resolve, reject) => {
     if (!URL) {
       console.log(chalk.red("Missing parameters!"));
@@ -27,7 +27,7 @@ function main(URL, ARGS) {
       url: URL,
       saveFloder: SAVEFLODER,
       ARGS
-    });
+    } as RunObject);
 
     URL = beforeRunResult?.url ?? URL;
     SAVEFLODER = beforeRunResult?.saveFloder ?? SAVEFLODER;
@@ -55,7 +55,7 @@ function main(URL, ARGS) {
       suffixName,
       cacheFileName,
       ARGS
-    });
+    } as RunObject);
 
     const saveFileName =
       createNameResult?.saveFileName ??
@@ -90,10 +90,10 @@ function main(URL, ARGS) {
       cacheFilePath,
       copyFilePath,
       ARGS
-    });
+    } as RunObject);
 
     removeFileDir(cachePath);
     resolve(true);
   });
 }
-module.exports = main;
+export default main;

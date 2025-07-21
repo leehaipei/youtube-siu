@@ -3,15 +3,18 @@
   "version": "0.0.1",
   "private": true,
   "description": "siu的一下,下载好youtube内容",
-  "main": "main.js",
+  "main": "main.ts",
   "author": "lile",
   "scripts": {
-    "start": "node start.js",
-    "many": "node group.js"
+    "start": "ts-node start.ts",
+    "many": "ts-node group.ts"
   },
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^20.14.5"
+    "@types/ftp": "^0.3.36",
+    "@types/node": "^20.14.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   },
   "dependencies": {
     "app-root-path": "^3.1.0",

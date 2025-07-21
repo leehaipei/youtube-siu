@@ -1,7 +1,7 @@
-const FtpClient = require('ftp');
-const fs = require('fs');
+import FtpClient from 'ftp';
+import fs from 'fs';
 const client = new FtpClient();
-const chalk = require("chalk");
+import chalk from "chalk";
 
 const config = {
   host: 'xxxx.xxxx.xxxx.xxxx', // ftp服务器地址
@@ -12,7 +12,7 @@ const config = {
 }
 
 function connect() {
-  return new Promise((resolve, reject) => {
+  return new Promise<void>((resolve, reject) => {
     client.on('ready', () => {
       console.log(chalk.gray('ftp ready'));
       resolve();
@@ -23,7 +23,7 @@ function connect() {
     client.on('end', () => {
       console.log(chalk.gray('ftp end'));
     });
-    client.on('error', (err) => {
+    client.on('error', (err: any) => {
       console.log(chalk.gray('ftp err'), err);
       reject(err)
     });
@@ -38,13 +38,13 @@ function connect() {
  * @param {String} fileName 目标位置的文件名称；文件名+扩展名
  * @returns {Promise<Boolean>}
  */
-async function uploadFTP(sourcePath, fileName) {
+async function uploadFTP(sourcePath: string, fileName: string): Promise<Boolean> {
   if (!fs.existsSync(sourcePath)) {
     return false;
   }
   await connect();
   return new Promise((resolve, reject) => {
-    client.put(sourcePath, fileName, (err) => {
+    client.put(sourcePath, fileName, (err: any) => {
       client.end();
       if (err) {
         console.log(err);
@@ -57,4 +57,4 @@ async function uploadFTP(sourcePath, fileName) {
   });
 }
 
-module.exports = uploadFTP;
+export default uploadFTP;

@@ -1,8 +1,10 @@
-const args = process.argv.slice(2);
-const sleep = require("./util/sleep");
+import sleep from "./util/sleep";
+import main from "./main";
 
-const runArgs = [],
-  urls = [];
+const args = process.argv.slice(2);
+
+const runArgs: string[] = [],
+  urls: string[] = [];
 
 args.forEach((arg) => {
   if (arg.startsWith("arg=")) {
@@ -14,9 +16,11 @@ args.forEach((arg) => {
 
 async function start() {
   for (let index = 0; index < urls.length; index++) {
-    await require("./main")(urls[index], runArgs);
+    await main(urls[index], runArgs);
     await sleep();
   }
 }
 
 start();
+
+export {};

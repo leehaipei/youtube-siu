@@ -1,6 +1,7 @@
-const fs = require("fs");
-const chalk = require("chalk");
-const sleep = require("./util/sleep");
+import fs from "fs";
+import chalk from "chalk";
+import sleep from "./util/sleep";
+import main from "./main";
 
 async function group() {
   const isGroupFile = fs.existsSync("URL_group.js");
@@ -24,7 +25,7 @@ async function group() {
   }
 
   for (let index = 0; index < URLs.length; index++) {
-    await require("./main")(URLs[index]);
+    await main(URLs[index], []);
     await sleep();
   }
 
@@ -33,3 +34,5 @@ async function group() {
 }
 
 group();
+
+export { };

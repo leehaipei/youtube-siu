@@ -14,6 +14,7 @@ siu的一下，下载好youTube内容
    - `npm start https://www.youtube.com/watch?v=aaaaaaaaaaa`
    - 默认保存文件夹为项目根目录下`/download`文件夹；若是修改保存文件夹，可通过修改`beforeRun`hook中的`saveFloder`参数
    - 若需要通过hooks改变参数值，hook需提供返回值
+   - 运行时的参数可通过`arg=xxx`传入，并提供给所有hooks
 
 
 

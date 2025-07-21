@@ -11,7 +11,7 @@ const runHooks = require("./util/runHooks");
 const appRootPath = appRoot.path;
 let SAVEFLODER = appRootPath + "/download";
 
-function main(URL) {
+function main(URL, ARGS) {
   return new Promise(async (resolve, reject) => {
     if (!URL) {
       console.log(chalk.red("Missing parameters!"));
@@ -23,6 +23,7 @@ function main(URL) {
       appRootPath,
       url: URL,
       saveFloder: SAVEFLODER,
+      ARGS
     });
 
     URL = beforeRunResult?.url ?? URL;
@@ -50,6 +51,7 @@ function main(URL) {
       cachePath,
       suffixName,
       cacheFileName,
+      ARGS
     });
 
     const saveFileName =
@@ -82,6 +84,7 @@ function main(URL) {
       saveFileName,
       cacheFilePath,
       copyFilePath,
+      ARGS
     });
 
     removeFileDir(cachePath);

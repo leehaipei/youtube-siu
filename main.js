@@ -1,4 +1,5 @@
 const randomWords = require("random-words");
+const ora = require("ora");
 const dayjs = require("dayjs");
 const appRoot = require("app-root-path");
 const { execSync } = require("child_process");
@@ -18,6 +19,8 @@ function main(URL, ARGS) {
       resolve(false);
       return;
     }
+
+    const spinner = ora(URL).start();
 
     const beforeRunResult = runHooks("beforeRun", {
       appRootPath,
@@ -64,6 +67,8 @@ function main(URL, ARGS) {
     const copy_existence = await fs.existsSync(SAVEFLODER);
     !copy_existence && fs.mkdirSync(SAVEFLODER);
     fs.copyFileSync(cacheFilePath, copyFilePath);
+
+    spinner.stop();
 
     if (cacheFileName !== saveFileName) {
       console.log(chalk.bgBlue(cacheFileName));

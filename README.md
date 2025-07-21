@@ -12,8 +12,15 @@ siu的一下，下载好youTube内容
 4. 安装依赖`npm i`
 5. 运行程序并携带参数
    - `npm start https://www.youtube.com/watch?v=aaaaaaaaaaa`
+   - 默认保存文件夹为项目根目录下`/download`文件夹；若是修改保存文件夹，可通过修改`beforeRun`hook中的`saveFloder`参数
+   - 若需要通过hooks改变参数值，hook需提供返回值
 
 
+
+## hooks说明
+- `beforeRun`: 运行前，可修改参数值url(需要获取的YouTube连接)、saveFloder(保存文件夹 | 默认项目根目录download文件夹)、dlpCommand(yt-dlp命令 | 默认只下载音频)
+- `createName`: 文件命名，可接收文件名参数saveFileName(默认`YYYY_MM_DD@random_words`格式)
+- `afterRun`: 运行后，默认不接收参数，可获取到全部运行参数
 
 
 

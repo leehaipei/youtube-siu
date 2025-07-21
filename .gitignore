@@ -5,8 +5,10 @@ pnpm-lock.yaml
 package-lock.json
 
 .cache/
+download/
 
 beforeRun.js
+createName.js
 afterRun.js
 
 URL_group.js

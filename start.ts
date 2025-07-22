@@ -1,16 +1,22 @@
 import sleep from "./util/sleep";
 import main from "./main";
 
+import { HttpString } from "./SiuTypes";
+
 const args = process.argv.slice(2);
 
 const runArgs: string[] = [],
-  urls: string[] = [];
+  urls: HttpString[] = [];
 
 args.forEach((arg) => {
   if (arg.startsWith("arg=")) {
     runArgs.push(arg.substring(4));
   } else {
-    urls.push(arg);
+    if (arg.startsWith("https://")) {
+      urls.push(arg as HttpString);
+    } else {
+      console.error(`参数 ${arg} 被忽略`);
+    }
   }
 });
 

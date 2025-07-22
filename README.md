@@ -22,7 +22,7 @@ siu的一下，下载好youTube内容
 - `beforeRun`: 运行前，可修改参数值url(需要获取的YouTube连接)、saveFloder(保存文件夹 | 默认项目根目录download文件夹)、dlpCommand(yt-dlp命令 | 默认只下载音频，命令可参考yt-dlp文档)
 - `createName`: 文件命名，可接收文件名参数saveFileName(默认`YYYY_MM_DD@random_words`格式)
 - `afterRun`: 运行后，默认不接收返回参数，可获取到全部运行参数
-- hooks中的类型定义请使用`util/RunObject.d.ts`
+- hooks中的类型定义请使用`SiuTypes.d.ts`
 
 
 

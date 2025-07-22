@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import type { RunObject } from "./util/RunObject.d";
+import type { RunObject } from "./SiuTypes";
 
 const createName = ({ ARGS = [] }: RunObject): RunObject | void => {
   if (ARGS.includes("useSiuName")) {

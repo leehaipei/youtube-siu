@@ -9,12 +9,12 @@ import chalk from "chalk";
 import removeFileDir from "./util/removeFileDir";
 import runHooks from "./util/runHooks";
 
-import type { RunObject } from "./util/RunObject.d";
+import type { RunObject, HttpString } from "./SiuTypes";
 
 const appRootPath = appRoot.path;
 let SAVEFLODER = appRootPath + "/download";
 
-function main(URL: string, ARGS: Array<string> = []) {
+function main(URL: HttpString, ARGS: Array<string> = []) {
   return new Promise(async (resolve, reject) => {
     if (!URL) {
       console.log(chalk.red("Missing parameters!"));

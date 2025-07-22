@@ -1,7 +1,7 @@
 import fs from "fs";
 import appRoot from "app-root-path";
 
-import type { RunObject } from "./RunObject.d";
+import type { RunObject } from "../SiuTypes";
 
 /**
  *

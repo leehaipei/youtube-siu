@@ -2,6 +2,10 @@ import fs from "fs";
 import chalk from "chalk";
 import sleep from "./util/sleep";
 import main from "./main";
+import URLs from "./URL_group";
+
+import { HttpString } from "./SiuTypes";
+
 
 async function group() {
   const isGroupFile = fs.existsSync("URL_group.ts");
@@ -9,9 +13,7 @@ async function group() {
     fs.copyFileSync('template_URL_group.ts', 'URL_group.ts');
   }
 
-  const URLs = require("./URL_group");
-
-  if (!(URLs instanceof Array)) {
+  if (!(URLs as HttpString[])) {
     console.log(chalk.red("URL_group.ts data type error!"));
     console.log(
       chalk.red("The data type exported from the URL_group.ts file should be an Array.")

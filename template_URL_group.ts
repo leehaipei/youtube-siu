@@ -1,3 +1,4 @@
-const URL_group: string[] = [];
+import { HttpString } from "./SiuTypes";
+const URLs: HttpString[] = [];
 
-export default URL_group;
+export default URLs;

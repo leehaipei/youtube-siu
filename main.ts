@@ -22,7 +22,7 @@ function main(URL: string, ARGS: Array<string>) {
 
     const spinner = ora(URL).start();
 
-    const beforeRunResult = runHooks("beforeRun", {
+    const beforeRunResult = await runHooks("beforeRun", {
       appRootPath,
       url: URL,
       saveFloder: SAVEFLODER,
@@ -46,7 +46,7 @@ function main(URL: string, ARGS: Array<string>) {
     const suffixName = path.extname(cachePath + "/" + readdir[0]);
     const cacheFileName = path.parse(cachePath + "/" + readdir[0]).name;
 
-    const createNameResult = runHooks("createName", {
+    const createNameResult = await runHooks("createName", {
       appRootPath,
       url: URL,
       saveFloder: SAVEFLODER,
@@ -76,7 +76,7 @@ function main(URL: string, ARGS: Array<string>) {
     }
     console.log(chalk.bgGreen(saveFileName));
 
-    runHooks("afterRun", {
+    await runHooks("afterRun", {
       appRootPath,
       url: URL,
       saveFloder: SAVEFLODER,

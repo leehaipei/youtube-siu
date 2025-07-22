@@ -24,10 +24,11 @@ export interface RunObject {
  * @param {Object} runObject 运行产生的参数对象
  * @returns {Object} 返回结果对象，包含运行结果
  */
-function runHooks(hookName: "beforeRun" | "afterRun" | "createName", runObject: RunObject): RunObject | void {
+async function runHooks(hookName: "beforeRun" | "afterRun" | "createName", runObject: RunObject): Promise<RunObject|void> {
   const hook = fs.existsSync(`${appRoot.path}/${hookName}.js`);
   if (hook) {
-    const hook = require(`${appRoot.path}/${hookName}.js`);
+    const hookModule = await import(`${appRoot.path}/${hookName}.js`);
+    const hook = hookModule.default || hookModule;
     if (typeof hook === "function") {
       return hook(runObject);
     }

@@ -11,6 +11,10 @@ beforeRun.js
 createName.js
 afterRun.js
 
+beforeRun.ts
+createName.ts
+afterRun.ts
+
 URL_group.js
 
 dist/ 

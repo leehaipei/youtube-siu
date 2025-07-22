@@ -4,23 +4,23 @@ import sleep from "./util/sleep";
 import main from "./main";
 
 async function group() {
-  const isGroupFile = fs.existsSync("URL_group.js");
+  const isGroupFile = fs.existsSync("URL_group.ts");
   if (!isGroupFile) {
-    fs.copyFileSync('template_URL_group.js', 'URL_group.js');
+    fs.copyFileSync('template_URL_group.ts', 'URL_group.ts');
   }
 
   const URLs = require("./URL_group");
 
   if (!(URLs instanceof Array)) {
-    console.log(chalk.red("URL_group.js data type error!"));
+    console.log(chalk.red("URL_group.ts data type error!"));
     console.log(
-      chalk.red("The data type exported from the URL_group.js file should be an Array.")
+      chalk.red("The data type exported from the URL_group.ts file should be an Array.")
     );
     return;
   }
 
   if (URLs.length === 0) {
-    console.log(chalk.red("URL_group.js file is empty!"));
+    console.log(chalk.red("URL_group.ts file is empty!"));
     return;
   }
 
@@ -29,8 +29,8 @@ async function group() {
     await sleep();
   }
 
-  fs.unlinkSync("URL_group.js")
-  fs.copyFileSync('template_URL_group.js', 'URL_group.js');
+  fs.unlinkSync("URL_group.ts")
+  fs.copyFileSync('template_URL_group.ts', 'URL_group.ts');
 }
 
 group();

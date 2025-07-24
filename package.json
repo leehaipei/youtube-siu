@@ -7,7 +7,8 @@
   "author": "lile",
   "scripts": {
     "start": "ts-node ./script/start.ts",
-    "many": "ts-node ./script/group.ts"
+    "many": "ts-node ./script/group.ts",
+    "build": "tsc"
   },
   "license": "ISC",
   "devDependencies": {

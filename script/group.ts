@@ -1,10 +1,10 @@
 import fs from "fs";
 import chalk from "chalk";
-import sleep from "./util/sleep";
-import main from "./main";
-import URLs from "./URL_group";
+import sleep from "../util/sleep";
+import main from "../main";
+import URLs from "../URL_group";
 
-import { HttpString } from "./SiuTypes";
+import { HttpString } from "../SiuTypes";
 
 
 async function group() {

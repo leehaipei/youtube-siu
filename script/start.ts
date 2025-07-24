@@ -1,7 +1,7 @@
-import sleep from "./util/sleep";
-import main from "./main";
+import sleep from "../util/sleep";
+import main from "../main";
 
-import { HttpString } from "./SiuTypes";
+import { HttpString } from "../SiuTypes";
 
 const args = process.argv.slice(2);
 

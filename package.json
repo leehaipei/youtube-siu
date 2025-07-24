@@ -6,8 +6,9 @@
   "main": "main.ts",
   "author": "lile",
   "scripts": {
-    "start": "ts-node start.ts",
-    "many": "ts-node group.ts"
+    "start": "ts-node ./script/start.ts",
+    "many": "ts-node ./script/group.ts",
+    "setup": "ts-node ./script/setup.ts"
   },
   "license": "ISC",
   "devDependencies": {
@@ -18,6 +19,7 @@
   },
   "dependencies": {
     "app-root-path": "^3.1.0",
+    "axios": "^1.11.0",
     "chalk": "4.1.2",
     "dayjs": "^1.11.13",
     "ftp": "^0.3.10",

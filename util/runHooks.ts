@@ -9,10 +9,10 @@ import type { RunObject } from "../SiuTypes";
  * @param {Object} runObject 运行产生的参数对象
  * @returns {Object} 返回结果对象，包含运行结果
  */
-async function runHooks(hookName: "beforeRun" | "afterRun" | "createName", runObject: RunObject): Promise<RunObject|void> {
-  const hook = fs.existsSync(`${appRoot.path}/${hookName}.ts`);
+async function runHooks(hookName: "beforeRun" | "afterRun" | "createName", runObject: RunObject): Promise<RunObject | void> {
+  const hook = fs.existsSync(`${appRoot.path}/hooks/${hookName}.ts`);
   if (hook) {
-    const hookModule = await import(`${appRoot.path}/${hookName}.ts`);
+    const hookModule = await import(`${appRoot.path}/hooks/${hookName}.ts`);
     const hook = hookModule.default || hookModule;
     if (typeof hook === "function") {
       return hook(runObject);

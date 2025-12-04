@@ -38,11 +38,21 @@ function main(URL: HttpString, ARGS: Array<string> = []) {
     const cache_existence = await fs.existsSync(cachePath);
     !cache_existence && fs.mkdirSync(cachePath);
 
-    const dlpCommand =
+    // 默认使用最佳音频格式替代硬编码的140格式
+    // 这样可以避免指定格式不可用时的错误
+    const dlpCommand = 
       beforeRunResult?.dlpCommand ??
-      `yt-dlp -o ${appRootPath + "/.cache/%(title)s.%(ext)s"} -f140 ${URL}`;
+      `yt-dlp -o ${appRootPath + "/.cache/%(title)s.%(ext)s"} -f bestaudio[ext=m4a]/bestaudio ${URL}`;
 
-    await execSync(dlpCommand);
+    try {
+      await execSync(dlpCommand);
+    } catch (error) {
+      const err = error as Error;
+      spinner.fail(chalk.red(`下载失败: ${err.message}`));
+      console.log(chalk.yellow("建议检查:") + "\n1. URL 是否正确\n2. 网络连接是否正常\n3. 尝试更新 yt-dlp 到最新版本");
+      reject(err);
+      return;
+    }
 
     const readdir = fs.readdirSync(cachePath);
     const suffixName = path.extname(cachePath + "/" + readdir[0]);

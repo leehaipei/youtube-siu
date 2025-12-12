@@ -1,6 +1,6 @@
 {
   "name": "youtube_siu",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": false,
   "description": "siu的一下,下载好youtube内容",
   "main": "main.ts",

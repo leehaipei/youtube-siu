@@ -10,11 +10,17 @@ siu的一下，下载好youTube内容
 2. 全局安装`yt-dlp`
 3. 全局安装`ffmpeg`
 4. 安装依赖`npm i`
-5. 运行程序并携带参数
+5. 进入项目目录，运行程序并携带参数
    - `npm start https://www.youtube.com/watch?v=aaaaaaaaaaa`
    - 默认保存文件夹为项目根目录下`/download`文件夹；若是修改保存文件夹，可通过修改`beforeRun`hook中的`saveFloder`参数
    - 若需要通过hooks改变参数值，hook需提供返回值
    - 运行时的自定义参数可通过`arg=xxx`传入，并提供给所有hooks
+6. 若希望全局运行命令可用
+   - 在项目目录下运行`npm link`
+   - 即可在全局使用`yt`命令，携带参数`yt https://www.youtube.com/watch?v=aaaaaaaaaaa`
+   - 若需要自定义命令
+     - 可在项目目录下的`package.json`中修改`bin`字段`"abcxyz": "bin/yt.js"`
+     - 运行`npm link`后，即可在全局使用`abcxyz https://www.youtube.com/watch?v=aaaaaaaaaaa`命令
 
 
 

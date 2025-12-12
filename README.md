@@ -191,9 +191,14 @@ A: 请确保 ffmpeg 已正确安装，并且能够被 yt-dlp 调用。
 
 ## 许可证
 
-本项目采用 ISC 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
+本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
 
 ## 致谢
 
 - [yt-dlp](https://github.com/yt-dlp/yt-dlp) - 强大的视频下载工具
 - [ffmpeg](https://ffmpeg.org/) - 优秀的音视频处理库
+
+
+---
+
+[English Version](README.en.md)

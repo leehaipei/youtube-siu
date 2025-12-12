@@ -5,7 +5,7 @@
   "description": "siu的一下,下载好youtube内容",
   "main": "main.ts",
   "bin": {
-    "yt": "bin/yt.js"
+    "siu": "bin/siu.js"
   },
   "author": "lile",
   "scripts": {

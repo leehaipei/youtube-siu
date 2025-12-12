@@ -17,14 +17,15 @@ siu的一下，下载好youTube内容
    - 运行时的自定义参数可通过`arg=xxx`传入，并提供给所有hooks
 6. 若希望全局运行命令可用
    - 在项目目录下运行`npm link`
-   - 即可在全局使用`yt`命令，携带参数`yt https://www.youtube.com/watch?v=aaaaaaaaaaa`
-   - 若需要自定义命令
-     - 可在项目目录下的`package.json`中修改`bin`字段`"abcxyz": "bin/yt.js"`
-     - 运行`npm link`后，即可在全局使用`abcxyz https://www.youtube.com/watch?v=aaaaaaaaaaa`命令
+   - 即可在全局使用`siu`命令，携带参数`siu https://www.youtube.com/watch?v=aaaaaaaaaaa`
+   - 若需要自定义命令，例如`yt`
+     - 可在项目目录下的`package.json`中修改`bin`字段`"yt": "bin/siu.js"`
+     - 运行`npm link`后，即可在全局使用`yt https://www.youtube.com/watch?v=aaaaaaaaaaa`命令
 
 
 
 ## hooks说明
+
 - `beforeRun`: 运行前，可修改参数值url(需要获取的YouTube连接)、saveFloder(保存文件夹 | 默认项目根目录download文件夹)、dlpCommand(yt-dlp命令 | 默认只下载音频，命令可参考yt-dlp文档)
 - `createName`: 文件命名，可接收文件名参数saveFileName(默认`YYYY_MM_DD@random_words`格式)
 - `afterRun`: 运行后，默认不接收返回参数，可获取到全部运行参数
@@ -45,6 +46,8 @@ siu的一下，下载好youTube内容
     4. `用户变量`及`系统变量`中`path`新建`yt-dlp.exe`文件的路径，注意不要写入文件名
 - macOS
   - 通过`pip`安装后检查是否可全局使用
+
+
 
 ## ffmpeg安装
 
